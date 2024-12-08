@@ -245,24 +245,37 @@ func TestIcon_Setters(t *testing.T) {
 	}
 
 	// Chain the setters and capture the returned icon
-	finalIcon := ConfigureIcon(originalIcon).SetColor("#FF0000").SetSize(32).Build()
+	finalIcon := ConfigureIcon(originalIcon).
+		SetColor("#FF0000").
+		SetSize(32).
+		SetStrokeWidth("2").
+		Build()
 
 	// Validate the individual fields on the returned icon
 	if finalIcon.Color != "#FF0000" {
 		t.Errorf("SeColor failed: expected #FF0000, got %s", finalIcon.Color)
 	}
+
 	if finalIcon.Size.String() != "32" {
 		t.Errorf("SetSize failed: expected 32, got %s", finalIcon.Size.String())
+	}
+
+	if finalIcon.StrokeWidth != "2" {
+		t.Errorf("SetStrokeWidth failed: expected 2, got %s", finalIcon.StrokeWidth)
 	}
 
 	// Ensure the original icon remains unchanged
 	if originalIcon.Size.String() != "24" {
 		t.Errorf("Original icon size modified: expected 24, got %s", originalIcon.Size.String())
 	}
+
 	if originalIcon.Color != "" {
 		t.Errorf("Original icon color modified: expected empty, got %s", originalIcon.Color)
 	}
 
+	if originalIcon.StrokeWidth != "" {
+		t.Errorf("Original icon stroke-width modified: expected empty, got %s", originalIcon.StrokeWidth)
+	}
 }
 
 func TestIcon_SetAttrs(t *testing.T) {
