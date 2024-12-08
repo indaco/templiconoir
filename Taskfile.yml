@@ -1,0 +1,38 @@
+version: '3'
+
+tasks:
+  templ:
+    desc: Run templ fmt and templ generate
+    internal: true
+    silent: true
+    dir: './_demos/pages/'
+    cmds:
+      - templ fmt . && templ generate
+
+  test:
+    desc: Run go tests.
+    silent: true
+    cmds:
+      - go test -race -covermode=atomic .
+
+  test/coverage:
+    desc: Run go tests and use go tool cover.
+    silent: true
+    cmds:
+      - go test -coverprofile=coverage.out .
+      - go tool cover -html=coverage.out
+
+  build:
+    desc: Generate the Go icon definitions based on parsed data/iconoir_cache.json file.
+    silent: true
+    dir: './cmd/'
+    cmds:
+      - go run icons-maker.go
+
+  demo:
+    desc: Run the demo server.
+    silent: true
+    dir: './_demos/'
+    deps: [templ]
+    cmds:
+      - go run main.go
