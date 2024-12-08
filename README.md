@@ -31,6 +31,8 @@
 
 This package provides the [Iconoir](https://iconoir.com) set (_v7.10.1_) as reusable, type-safe go [templ](https://github.com/a-h/templ) components.
 
+The icons dataset is dynamically fetched from the [Iconify](https://github.com/iconify/icon-sets) repository.
+
 ## Features
 
 - **Lazy Loading**: Icons are loaded on demand at runtime, reducing memory usage and improving performance.
