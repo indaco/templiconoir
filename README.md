@@ -83,7 +83,7 @@ templ DemoPage() {
 
 ### Customizing Icons
 
-With the `ConfigureIcon` builder pattern, you can customize the icons more fluently and efficiently. This approach allows to chain multiple customization methods together. Once you've set your desired properties, call `Render()` to get the final icon directly as templ component.
+The `Config` builder pattern allows for fluent and efficient customization of icons. Chain multiple methods to configure properties like size, color, and attributes, then call Render() to generate the final icon as a templ component.
 
 #### 1. SetSize()
 
@@ -96,9 +96,7 @@ import iconoir "github.com/indaco/templiconoir"
 
 templ CustomSizePage() {
     // Set custom size
-    @iconoir.ConfigureIcon(iconoir.CheckCircleSolid).
-        SetSize(32).
-        Render()
+    @iconoir.CheckCircleSolid.Config().SetSize(32).Render()
 }
 ```
 
@@ -113,9 +111,7 @@ import iconoir "github.com/indaco/templiconoir"
 
 templ CustomFillColor() {
     // Customize fill color
-   @iconoir.ConfigureIcon(iconoir.Chromecast).
-       SetColor("#2dd4bf").
-       Render()
+   @iconoir.Chromecast.Config().SetColor("#2dd4bf").Render()
 }
 ```
 
@@ -130,7 +126,7 @@ import iconoir "github.com/indaco/templiconoir"
 
 templ CustomStrokeWidthColor() {
     // Customize stroke.width
-   @iconoir.ConfigureIcon(iconoir.Swimming).
+   @iconoir.Swimming.Config().
        SetStrokeWidth("2").
        Render()
 }

@@ -33,16 +33,16 @@ templ HomePage() {
 						<div class="mt-4">
 							<h3>Set Size</h3>
 							<p class="my-1 flex gap-2">
-								@iconoir.ConfigureIcon(iconoir.Swimming).SetSize(16).Render()
-								@iconoir.ConfigureIcon(iconoir.Swimming).SetSize(20).Render()
+								@iconoir.Swimming.Config().SetSize(16).Render()
+								@iconoir.Swimming.Config().SetSize(20).Render()
 								@iconoir.Swimming.Render()
-								@iconoir.ConfigureIcon(iconoir.Swimming).SetSize(32).Render()
+								@iconoir.Swimming.Config().SetSize(32).Render()
 								@iconoir.Swimming.Render()
 							</p>
 							<h3>Set Color</h3>
 							<p class="my-1 flex gap-2">
-								@iconoir.ConfigureIcon(iconoir.Chromecast).SetColor("#22d3ee").Render()
-								@iconoir.ConfigureIcon(iconoir.ChatMinusInSolid).SetColor("#2dd4bf").Render()
+								@iconoir.Chromecast.Config().SetColor("#22d3ee").Render()
+								@iconoir.ChatMinusInSolid.Config().SetColor("#2dd4bf").Render()
 							</p>
 						</div>
 					</section>

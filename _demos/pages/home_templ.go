@@ -47,11 +47,11 @@ func HomePage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = iconoir.ConfigureIcon(iconoir.Swimming).SetSize(16).Render().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = iconoir.Swimming.Config().SetSize(16).Render().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = iconoir.ConfigureIcon(iconoir.Swimming).SetSize(20).Render().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = iconoir.Swimming.Config().SetSize(20).Render().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -59,7 +59,7 @@ func HomePage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = iconoir.ConfigureIcon(iconoir.Swimming).SetSize(32).Render().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = iconoir.Swimming.Config().SetSize(32).Render().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -71,11 +71,11 @@ func HomePage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = iconoir.ConfigureIcon(iconoir.Chromecast).SetColor("#22d3ee").Render().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = iconoir.Chromecast.Config().SetColor("#22d3ee").Render().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = iconoir.ConfigureIcon(iconoir.ChatMinusInSolid).SetColor("#2dd4bf").Render().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = iconoir.ChatMinusInSolid.Config().SetColor("#2dd4bf").Render().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

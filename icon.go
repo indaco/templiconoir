@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"fmt"
 	"io"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -37,6 +38,60 @@ type Icon struct {
 
 func (i *Icon) Render() templ.Component {
 	return templ.Raw(makeSVGTag(i))
+}
+
+// IconBuilder is a builder for configuring an Icon.
+// It allows method chaining to update the icon's properties.
+type IconBuilder struct {
+	icon *Icon // Reference to the icon being configured
+}
+
+// Config returns an IconBuilder to allow chaining configuration methods on the icon.
+func (icon *Icon) Config() *IconBuilder {
+	return &IconBuilder{
+		icon: icon.clone(), // Clone the icon to ensure immutability
+	}
+}
+
+// ConfigureIcon creates a new builder from an existing icon.
+func ConfigureIcon(icon *Icon) *IconBuilder {
+	return &IconBuilder{
+		icon: icon.clone(), // Clone the icon to ensure immutability
+	}
+}
+
+// SetSize sets the size of the icon.
+func (b *IconBuilder) SetSize(size int) *IconBuilder {
+	b.icon.Size = Size(strconv.Itoa(size))
+	return b
+}
+
+// SetStrokeWidth sets the stroke-width of the icon.
+func (b *IconBuilder) SetStrokeWidth(value string) *IconBuilder {
+	b.icon.StrokeWidth = value
+	return b
+}
+
+// SetColor sets the fill color of the icon.
+func (b *IconBuilder) SetColor(value string) *IconBuilder {
+	b.icon.Color = value
+	return b
+}
+
+// SetAttrs sets custom attributes for the SVG tag (e.g., `aria-hidden`, `focusable`).
+func (b *IconBuilder) SetAttrs(attrs templ.Attributes) *IconBuilder {
+	b.icon.Attrs = attrs
+	return b
+}
+
+// GetIcon returns the configured icon instance.
+func (b *IconBuilder) GetIcon() *Icon {
+	return b.icon
+}
+
+// Render generates the SVG for the configured icon.
+func (b *IconBuilder) Render() templ.Component {
+	return b.icon.Render()
 }
 
 func (i *Icon) clone() *Icon {
