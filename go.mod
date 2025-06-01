@@ -3,7 +3,7 @@ module github.com/indaco/templiconoir
 go 1.23.7
 
 require (
-	github.com/a-h/templ v0.3.857
+	github.com/a-h/templ v0.3.887
 	github.com/tidwall/gjson v1.18.0
 )
 
